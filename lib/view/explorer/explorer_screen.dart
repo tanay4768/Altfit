@@ -11,6 +11,8 @@ final controller = Get.find<ExplorerController>();
 
 final OverlayPortalController _controller1 = OverlayPortalController();
 final OverlayPortalController _controller2 = OverlayPortalController();
+final OverlayPortalController _controller3 = OverlayPortalController();
+final OverlayPortalController _controller4 = OverlayPortalController();
 final MenuPosition position = MenuPosition.bottomStart;
 
    ExplorerScreen({super.key});
@@ -32,7 +34,7 @@ final MenuPosition position = MenuPosition.bottomStart;
               Text("Explore", style: theme.textTheme.headlineMedium!.copyWith(
                 fontWeight: FontWeight.bold
               ),),
-              Text("Find your new challange", style: theme.textTheme.titleMedium!.copyWith(
+              Text("Find your new challenge", style: theme.textTheme.titleMedium!.copyWith(
                 fontWeight: FontWeight.bold
               ),),
             ],
@@ -43,6 +45,15 @@ final MenuPosition position = MenuPosition.bottomStart;
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
+                Obx(() {
+                  final modesLength = controller.modes.length;
+                  final levelsLength = controller.levels.length;
+                  if (Orientation.portrait == orientation && modesLength > 0 && levelsLength > 0) {
+                    return _buildTopBar(context);
+                  } else {
+                    return Space(height: 1);
+                  }
+                }),
                 Expanded(child: _buildListView(orientation == Orientation.portrait, context))
               ],
             ),
@@ -73,6 +84,7 @@ final MenuPosition position = MenuPosition.bottomStart;
 
 
   _buildTopBar(BuildContext context){
+    bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Column(
@@ -88,7 +100,7 @@ final MenuPosition position = MenuPosition.bottomStart;
                   context: context,
                   listMap: controller.modes,
                   name: "mode",
-                  controller: _controller1,
+                  controller:  isPortrait ? _controller1 : _controller3,
                   icon: Icon(Icons.fitness_center)
                 ),
               ),
@@ -99,7 +111,7 @@ final MenuPosition position = MenuPosition.bottomStart;
                   context: context,
                   listMap: controller.levels,
                   name: "level",
-                  controller: _controller2,
+                  controller: isPortrait ? _controller2 : _controller4,
                   icon: Icon(Icons.flag),
                 ),
               ),
@@ -114,7 +126,12 @@ final MenuPosition position = MenuPosition.bottomStart;
   _buildListView(bool isPortrait, BuildContext context){
     return SafeArea(
       child: Obx(()=>
-      controller.finalList.isEmpty ? Text("No plan available") :
+      controller.finalList.isEmpty ? Column(
+        children: [
+        if(!isPortrait && controller.modes.isNotEmpty && controller.levels.isNotEmpty)  _buildTopBar(context),
+          Text("No plan available now"),
+        ],
+      ):
          Padding(
           padding: const EdgeInsets.all(8.0),
           child: Obx(()=>ListView.separated(
@@ -123,9 +140,9 @@ final MenuPosition position = MenuPosition.bottomStart;
             itemBuilder: (context, index){
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child:index!=0 ? PlanWidget(context: context,mainview: false, program: controller.finalList[index], isPortrait: isPortrait,) : Column(
+              child:index!=0 ? PlanWidget(context: context,mainview: false, program: controller.finalList[index], isPortrait: isPortrait,) :   Column(
                 children: [
-                  _buildTopBar(context),
+                  if(!isPortrait)_buildTopBar(context),
                   PlanWidget(context: context,mainview: false, program: controller.finalList[index], isPortrait: isPortrait,)
                 ],
               ),
@@ -161,15 +178,18 @@ _buildDropdownChip({required RxList<String> selectedList, required RxList<Map<St
 }
 
 Widget buildChip({required String field, required bool val, required ValueChanged<bool?> onChanged}) {
-  return Row(
-    children: [
-      Checkbox(
-        value: val,
-        onChanged: onChanged,
-      ),
-      const SizedBox(width: 8),
-      Text(field),
-    ],
+  return SizedBox(
+    width: 200,
+    child: Row(
+      children: [
+        Checkbox(
+          value: val,
+          onChanged: onChanged,
+        ),
+        const SizedBox(width: 8),
+        Text(field),
+      ],
+    ),
   );
 }
 
