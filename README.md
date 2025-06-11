@@ -59,5 +59,5 @@ To run this Flutter project, follow these steps:
         ```bash
         flutter run -d <device_id>
         ```
-<h2>App Links</h2>
-<href src="https://drive.google.com/drive/folders/1VCS_AMe_iefFcYbO3Dh1YimEnE_qUxfx?usp=sharing">https://drive.google.com/drive/folders/1VCS_AMe_iefFcYbO3Dh1YimEnE_qUxfx?usp=sharing</href>
+<h2>App Links(Bug Solved)</h2>
+<href src="https://drive.google.com/file/d/1n3ZwHVErGOA7lRAkBNP7HTG8ga0S3TxC/view?usp=sharing">https://drive.google.com/file/d/1n3ZwHVErGOA7lRAkBNP7HTG8ga0S3TxC/view?usp=sharing</href>
