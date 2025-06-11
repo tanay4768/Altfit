@@ -21,6 +21,9 @@
 <img src="./assets/screenshots/sc4.png" alt="App Screenshot 1" width="390" height="844" margin="100">
 <img src="./assets/screenshots/sc5.png" alt="App Screenshot 1" width="390" height="844" margin="100"> </p>
 
+<h2>Figma Links</h2>
+<href src="https://www.figma.com/design/KW0WRgEpdArgQIhEVuqepl/AltFit?node-id=0-1&t=5oFMQbJT028Nw2vb-1">https://www.figma.com/design/KW0WRgEpdArgQIhEVuqepl/AltFit?node-id=0-1&t=5oFMQbJT028Nw2vb-1</href>
+
 To run this Flutter project, follow these steps:
 
 1.  **Clone the repository:**
