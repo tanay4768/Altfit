@@ -24,6 +24,8 @@
 <h2>Figma Links</h2>
 <href src="https://www.figma.com/design/KW0WRgEpdArgQIhEVuqepl/AltFit?node-id=0-1&t=5oFMQbJT028Nw2vb-1">https://www.figma.com/design/KW0WRgEpdArgQIhEVuqepl/AltFit?node-id=0-1&t=5oFMQbJT028Nw2vb-1</href>
 
+
+<h2>Flutter Project</h2>
 To run this Flutter project, follow these steps:
 
 1.  **Clone the repository:**
