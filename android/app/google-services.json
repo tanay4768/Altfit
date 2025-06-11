@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "814560666523",
+    "firebase_url": "https://altfit-4fd45-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "altfit-4fd45",
+    "storage_bucket": "altfit-4fd45.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814560666523:android:40f01ea94e270b1cfef73e",
+        "android_client_info": {
+          "package_name": "com.example.altfit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmXgdaGM4lL9ahrYEPtwmGBnzSjqyoZyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
